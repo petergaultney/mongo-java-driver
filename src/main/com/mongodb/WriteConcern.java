@@ -26,7 +26,7 @@ import java.util.Map;
 
 /**
  * <p>Controls the acknowledgment of write operations with various options.</p>
- * 
+ *
  * <p>{@code w}</p>
  * <ul>
  *  <li> 0: Don't wait for acknowledgement from the server </li>
@@ -38,7 +38,7 @@ import java.util.Map;
  *   <li>0: indefinite </li>
  *   <li>&gt;0: time to wait in milliseconds</li>
  * </ul>
- * 
+ *
  * <p>Other options:</p>
  * <ul>
  *   <li>{@code j}: If true block until write operations have been committed to the journal. Cannot be used in combination with
@@ -211,14 +211,14 @@ public class WriteConcern implements Serializable {
     }
 
     /**
-     * <p>Creates a WriteConcern object.</p> 
-     * 
+     * <p>Creates a WriteConcern object.</p>
+     *
      * <p>Specifies the number of servers to wait for on the write operation, and exception raising behavior </p>
-     * 
+     *
      * <p> {@code w} represents the number of servers:</p>
      * <ul>
-     * 	   <li>{@code w=0} None, network socket errors raised</li>
-     * 	   <li>{@code w=1} Checks server for errors as well as network socket errors raised</li>
+     *     <li>{@code w=0} None, network socket errors raised</li>
+     *     <li>{@code w=1} Checks server for errors as well as network socket errors raised</li>
      *     <li>{@code w>1} Checks servers (w) for errors as well as network socket errors raised</li>
      * </ul>
      *
@@ -231,14 +231,14 @@ public class WriteConcern implements Serializable {
     }
 
     /**
-     * <p>Creates a WriteConcern object.</p> 
+     * <p>Creates a WriteConcern object.</p>
      *
      * <p>Specifies the number of servers to wait for on the write operation, and exception raising behavior </p>
      *
      * <p> {@code w} represents the number of servers:</p>
      * <ul>
-     * 	   <li>{@code w=0} None, network socket errors raised</li>
-     * 	   <li>{@code w=1} Checks server for errors as well as network socket errors raised</li>
+     *     <li>{@code w=0} None, network socket errors raised</li>
+     *     <li>{@code w=1} Checks server for errors as well as network socket errors raised</li>
      *     <li>{@code w>1} Checks servers (w) for errors as well as network socket errors raised</li>
      * </ul>
      *
@@ -252,17 +252,17 @@ public class WriteConcern implements Serializable {
     }
 
     /**
-     * <p>Creates a WriteConcern object.</p> 
+     * <p>Creates a WriteConcern object.</p>
      *
      * <p>Specifies the number of servers to wait for on the write operation, and exception raising behavior </p>
      *
      * <p> {@code w} represents the number of servers:</p>
      * <ul>
-     * 	   <li>{@code w=0} None, network socket errors raised</li>
-     * 	   <li>{@code w=1} Checks server for errors as well as network socket errors raised</li>
+     *     <li>{@code w=0} None, network socket errors raised</li>
+     *     <li>{@code w=1} Checks server for errors as well as network socket errors raised</li>
      *     <li>{@code w>1} Checks servers (w) for errors as well as network socket errors raised</li>
      * </ul>
-     * 
+     *
      * @param w number of writes
      * @param wtimeout timeout for write operation
      * @param fsync whether or not to fsync
@@ -285,17 +285,17 @@ public class WriteConcern implements Serializable {
     }
 
     /**
-     * <p>Creates a WriteConcern object.</p> 
+     * <p>Creates a WriteConcern object.</p>
      *
      * <p>Specifies the number of servers to wait for on the write operation, and exception raising behavior </p>
      *
      * <p> {@code w} represents the number of servers:</p>
      * <ul>
-     * 	   <li>{@code w=0} None, network socket errors raised</li>
-     * 	   <li>{@code w=1} Checks server for errors as well as network socket errors raised</li>
+     *     <li>{@code w=0} None, network socket errors raised</li>
+     *     <li>{@code w=1} Checks server for errors as well as network socket errors raised</li>
      *     <li>{@code w>1} Checks servers (w) for errors as well as network socket errors raised</li>
      * </ul>
-     * 
+     *
      * @param w number of writes
      * @param wtimeout timeout for write operation
      * @param fsync whether or not to fsync
@@ -306,17 +306,17 @@ public class WriteConcern implements Serializable {
     }
 
     /**
-     * <p>Creates a WriteConcern object.</p> 
+     * <p>Creates a WriteConcern object.</p>
      *
      * <p>Specifies the number of servers to wait for on the write operation, and exception raising behavior </p>
      *
      * <p> {@code w} represents the number of servers:</p>
      * <ul>
-     * 	   <li>{@code w=0} None, network socket errors raised</li>
-     * 	   <li>{@code w=1} Checks server for errors as well as network socket errors raised</li>
+     *     <li>{@code w=0} None, network socket errors raised</li>
+     *     <li>{@code w=1} Checks server for errors as well as network socket errors raised</li>
      *     <li>{@code w>1} Checks servers (w) for errors as well as network socket errors raised</li>
      * </ul>
-     * 
+     *
      * @param w number of writes
      * @param wtimeout timeout for write operation
      * @param fsync whether or not to fsync
@@ -437,6 +437,10 @@ public class WriteConcern implements Serializable {
      * @throws ClassCastException if w is not an integer
      */
     public int getW(){
+        if (_w != null) {
+            System.err.println("_w type is " + ((Object)_w).getClass().getName());
+            System.err.println("_w value is " + ((Object)_w).toString());
+        }
         return (Integer) _w;
     }
 
